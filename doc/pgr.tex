@@ -175,7 +175,9 @@ Perlinův šum\cite{cite1, cite2} jsme použili k zobrazení mraků na obloze. J
 o~šum, který vzniká jako součet několika různých náhodných signálů s~různou
 frekvencí a~amlitudou.
 
-Implementace navazující textury interpolací krajních bodů přes okraj.
+Použili jsme OpenMP pro urychlení výpočtu na CPU pomocí vícevláknového
+zpracování. OpenMP je sada direktiv pro překladač, který pak generuje vlákna
+a rozděluje mezi ně výpočet.
 
 % paralelizace neni pro nad ramec FIT
 % \paragraph{Rozsah:} podle potřeby a vlastního uvážení
@@ -210,7 +212,7 @@ na podobu výsledného signálu.
 
 \begin{itemize}
 \item \textbf{\AuthorA}: Poprvé jsem programoval ray-tracing -- naučil
-jsem se základy matematiky, která se v~této oblasti
+jsem se základy ma\-te\-ma\-ti\-ky, která se v~této oblasti
 používá (barycentrické souřadnice, výpočty průsečíků apod.). Vyzkoušel
 jsem si modelování reálné přírodní scény, což jsem dosud ve škole sám
 nedělal.
@@ -278,11 +280,11 @@ Program je možné přeložit a~spustit na platformách s~C++ překladačem.
 \section{Obsluha programu}
 
 Program se používá z~příkazové řádky následujícím způsobem:
-{\tt skygen [[-t time][-d duration][-f frames][-o name][-c amount][-e density][-x width][-y height][-p level][-s] | [-h]]}
+{\tt skygen [[-t time][-d duration][-f frames][-o name][-c amount][-e density][-x width][-y height][-p level][-s]] | [-h]}
 
 \begin{itemize}
 \item {\tt -t} specifikuje denní dobu v~24hodinovém formátu {\tt HH:MM}.
-\item {\tt -d} specifikuje trvání animace od dané denní doby celým číslem udávajícím počtet minut.
+\item {\tt -d} specifikuje trvání animace od dané denní doby celým číslem udávajícím počet minut.
 \item {\tt -f} udává počet snímků animace.
 \item {\tt -o} říká, jaké bude jméno (jména) výstupního souboru.
 \item {\tt -x} zadává šířku generovaného obrázku v~pixelech.
@@ -307,7 +309,6 @@ zabrané, čehož jsme sami využili.
 
 \nocite{cite1}
 \nocite{cite2}
-\nocite{cite3}
 
 \bibliography{reference}
 \addcontentsline{toc}{chapter}{Literatura}
